@@ -1,0 +1,25 @@
+{
+  "name": "NCF",
+  "version": "0.1.0",
+  "description": "Programa Factura NCF",
+  "main": "app.js",
+  "scripts": {
+    "start": "grunt",
+    "test": "echo \"Error: no test specified\" && exit 1"
+    // "install-windows-service": "winser -i",
+    // "uninstall-windows-service": "winser -r"
+  },
+  "author": "Ronny Morel",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.1.0",
+    "body-parser": "^1.7.0",
+    "express": "4.8.5",
+    "vash": "^0.7.12-1",
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1",
+    "socket.io": "^1.4.6",
+    "bower": "^1.3.12"
+  }
+}
