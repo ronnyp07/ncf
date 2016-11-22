@@ -45,9 +45,8 @@ app.get('/', function(req, res, next){
                  res.render('login');
                 }else{
                   var result = recordsets[0];
-                  console.log(result[0]);
                   res.locals.user = result;
-                  res.render('index', {user: result[0]});
+                  res.render('index', {user: JSON.stringify(result[0])});
                 }
 			}
 		});

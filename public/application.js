@@ -23,7 +23,8 @@ var mainApplicationModule = angular.module('mean',
 	 'provider',
 	 'ncf',
 	 'factura',
-	 'toaster'
+	 'toaster',
+	 'user'
 
 	 // 'ngRoute',
 	 // 'users',

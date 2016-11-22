@@ -20,9 +20,9 @@ core.config(['$stateProvider', '$urlRouterProvider',
     //   url:'/print',
     //   templateUrl: 'factura/partials/print.html'
     // });
-    .state('not-found', {
-      url: '/not-found',
-      templateUrl: '/core/views/404.client.view.html'
-    });
+    // .state('not-found', {
+    //   url: '/not-found',
+    //   templateUrl: '/core/views/404.client.view.html'
+    // });
   }
 ]);

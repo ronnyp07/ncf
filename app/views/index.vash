@@ -2,8 +2,7 @@
 @html.block('body', function(model){
 
 <script type="text/javascript">
-    console.log(@html.raw(model.user[0]))
-       window.user =  @html.raw(model.user)
+       window.user =  JSON.stringify(@html.raw(model.user))
  </script>
 
 <nav class="navbar-inverse navbar-fixed-top">

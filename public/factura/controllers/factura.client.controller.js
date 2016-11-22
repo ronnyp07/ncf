@@ -1,7 +1,7 @@
 'Use strict';
 
 var facturaModule = angular.module('factura');
-facturaModule.controller('FacturaController',['$scope', 'FacturaServiceRest', '$modal', 'NcfServiceRest', '$q',  function($scope, FacturaServiceRest, $modal, NcfServiceRest, $q){
+facturaModule.controller('FacturaController',['$scope', 'FacturaServiceRest', '$modal', 'NcfServiceRest', '$q', 'Authentication',  function($scope, FacturaServiceRest, $modal, NcfServiceRest, $q, Authentication){
 
   var vm = this;
   vm.facturaServices = FacturaServiceRest;
@@ -11,6 +11,10 @@ facturaModule.controller('FacturaController',['$scope', 'FacturaServiceRest', '$
     vm.selectedMoneda = vm.ncfServices.getMonedaById(2);
     vm.facturaServices.factura.tasa = vm.selectedMoneda.TASA;
   });
+
+  vm.authentication = Authentication;
+  console.log(vm.authentication.user.USER_ID_PK);
+
 
   vm.userInfo = {
     date: moment().format('DD/MM/YYYY'),
