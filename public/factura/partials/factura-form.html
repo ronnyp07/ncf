@@ -1,0 +1,69 @@
+<form
+ class="form-horizontal"
+ ng-submit="vm.createNcf(vm.factura, facturaForm.$valid)" id="facturaForm" name="facturaForm" novalidate>
+	<div class="form-group" ng-class="{'has-error': (!vm.factura.codes)  && (!facturaForm.$pristine || facturaForm.$submitted),
+    'has-success': (vm.factura.codes) && ( !facturaForm.$pristine || facturaForm.$submitted)}">
+		<label class="control-label col-sm-4">Tipo NCF</label>
+		<div class="col-sm-6">
+			<oi-select
+			oi-options="item.CODE_DESC for item in vm.facturaServices.getNcfTypes() track by item.CODE"
+			ng-model="vm.factura.codes"
+			ng-change="vm.search()"
+			ng-model="vm.productServices.product.sucursalId"
+			placeholder="Tipos de NCF"
+			name="code"
+			></oi-select required>
+		</div>
+	</div>
+  <div class="form-group" ng-class="{'has-error': (facturaForm.serie.$invalid)  && (!facturaForm.$pristine || facturaForm.$submitted),
+  'has-success': (facturaForm.serie.$valid || facturaForm.serie.$valid) && ( !facturaForm.$pristine || facturaForm.$submitted)}">
+		<label class="control-label col-sm-4" for="email">Serie:</label>
+		<div class="col-sm-6">
+			<input maxlength="1" type="text" class="form-control" ng-model="vm.factura.serie" name="serie" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (facturaForm.numdiv.$invalid)  && (!facturaForm.$pristine || facturaForm.$submitted),
+  'has-success': (facturaForm.numdiv.$valid || facturaForm.numdiv.$valid) && ( !facturaForm.$pristine || facturaForm.$submitted)}">
+		<label class="control-label col-sm-4" for="email">Div. de Negocios:</label>
+		<div class="col-sm-6">
+			<input maxlength="2" type="text" class="form-control" name="numdiv" ng-model="vm.factura.numdiv" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (facturaForm.numare.$invalid)  && (!facturaForm.$pristine || facturaForm.$submitted),
+  'has-success': (facturaForm.numare.$valid || facturaForm.numare.$valid) && ( !facturaForm.$pristine || facturaForm.$submitted)}">
+		<label class="control-label col-sm-4" >Punto Emisión:</label>
+		<div class="col-sm-6">
+			<input maxlength="3" type="text" class="form-control" name="numare" ng-model="vm.factura.numare" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (facturaForm.numeri.$invalid)  && (!facturaForm.$pristine || facturaForm.$submitted),
+  'has-success': (facturaForm.numeri.$valid || facturaForm.numeri.$valid) && ( !facturaForm.$pristine || facturaForm.$submitted)}">
+		<label class="control-label col-sm-4" >Área de Impresión:</label>
+		<div class="col-sm-6">
+			<input maxlength="3" type="text" class="form-control" name="numeri" ng-model="vm.factura.numeri" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (facturaForm.SecInicial.$invalid)  && (!facturaForm.$pristine || facturaForm.$submitted),
+  'has-success': (facturaForm.SecInicial.$valid || facturaForm.SecInicial.$valid) && ( !facturaForm.$pristine || facturaForm.$submitted)}">
+		<label class="control-label col-sm-4" for="email">Sec. Inicial:</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="email" autocomplete="off" required name="SecInicial" ng-model="vm.factura.SecInicial" min="1">
+		</div>
+	</div>
+
+	<div class="form-group" ng-class="{'has-error': (facturaForm.SecFinal.$invalid)  && (!facturaForm.$pristine || facturaForm.$submitted),
+  'has-success': (facturaForm.SecFinal.$valid || facturaForm.SecFinal.$valid) && ( !facturaForm.$pristine || facturaForm.$submitted)}">
+		<label class="control-label col-sm-4" >Sec. Final:</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="email" autocomplete="off" required name="SecFinal" ng-model="vm.factura.SecFinal" min="1">
+		</div>
+	</div>
+   <br>
+<div class="row">
+<div class="col-sm-12 text-center paddingRight">
+			<a ng-click="vm.cancelForm()" class="btn btn-danger">Cancelar</a>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</div>
+	</div>
+	<br>
+</form>

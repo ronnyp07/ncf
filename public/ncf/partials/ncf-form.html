@@ -1,0 +1,69 @@
+<form
+ class="form-horizontal"
+ ng-submit="vm.createNcf(vm.ncf, ncfForm.$valid)" id="ncfForm" name="ncfForm" novalidate>
+	<div class="form-group" ng-class="{'has-error': (!vm.ncf.codes)  && (!ncfForm.$pristine || ncfForm.$submitted),
+    'has-success': (vm.ncf.codes) && ( !ncfForm.$pristine || ncfForm.$submitted)}">
+		<label class="control-label col-sm-4">Tipo NCF</label>
+		<div class="col-sm-6">
+			<oi-select
+			oi-options="item.CODE_DESC for item in vm.ncfServices.getNcfTypes() track by item.CODE"
+			ng-model="vm.ncf.codes"
+			ng-change="vm.search()"
+			ng-model="vm.productServices.product.sucursalId"
+			placeholder="Tipos de NCF"
+			name="code"
+			></oi-select required>
+		</div>
+	</div>
+  <div class="form-group" ng-class="{'has-error': (ncfForm.serie.$invalid)  && (!ncfForm.$pristine || ncfForm.$submitted),
+  'has-success': (ncfForm.serie.$valid || ncfForm.serie.$valid) && ( !ncfForm.$pristine || ncfForm.$submitted)}">
+		<label class="control-label col-sm-4" for="email">Serie:</label>
+		<div class="col-sm-6">
+			<input maxlength="1" type="text" class="form-control" ng-model="vm.ncf.serie" name="serie" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (ncfForm.numdiv.$invalid)  && (!ncfForm.$pristine || ncfForm.$submitted),
+  'has-success': (ncfForm.numdiv.$valid || ncfForm.numdiv.$valid) && ( !ncfForm.$pristine || ncfForm.$submitted)}">
+		<label class="control-label col-sm-4" for="email">Div. de Negocios:</label>
+		<div class="col-sm-6">
+			<input maxlength="2" type="text" class="form-control" name="numdiv" ng-model="vm.ncf.numdiv" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (ncfForm.numare.$invalid)  && (!ncfForm.$pristine || ncfForm.$submitted),
+  'has-success': (ncfForm.numare.$valid || ncfForm.numare.$valid) && ( !ncfForm.$pristine || ncfForm.$submitted)}">
+		<label class="control-label col-sm-4" >Punto Emisión:</label>
+		<div class="col-sm-6">
+			<input maxlength="3" type="text" class="form-control" name="numare" ng-model="vm.ncf.numare" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (ncfForm.numemi.$invalid)  && (!ncfForm.$pristine || ncfForm.$submitted),
+  'has-success': (ncfForm.numemi.$valid || ncfForm.numemi.$valid) && ( !ncfForm.$pristine || ncfForm.$submitted)}">
+		<label class="control-label col-sm-4" >Área de Impresión:</label>
+		<div class="col-sm-6">
+			<input maxlength="3" type="text" class="form-control" name="numemi" ng-model="vm.ncf.numemi" autocomplete="off" required>
+		</div>
+	</div>
+	<div class="form-group" ng-class="{'has-error': (ncfForm.SecInicial.$invalid)  && (!ncfForm.$pristine || ncfForm.$submitted),
+  'has-success': (ncfForm.SecInicial.$valid || ncfForm.SecInicial.$valid) && ( !ncfForm.$pristine || ncfForm.$submitted)}">
+		<label class="control-label col-sm-4" for="email">Sec. Inicial:</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="email" autocomplete="off" required name="SecInicial" ng-model="vm.ncf.SecInicial" min="1">
+		</div>
+	</div>
+
+	<div class="form-group" ng-class="{'has-error': (ncfForm.SecFinal.$invalid)  && (!ncfForm.$pristine || ncfForm.$submitted),
+  'has-success': (ncfForm.SecFinal.$valid || ncfForm.SecFinal.$valid) && ( !ncfForm.$pristine || ncfForm.$submitted)}">
+		<label class="control-label col-sm-4" >Sec. Final:</label>
+		<div class="col-sm-6">
+			<input type="number" class="form-control" id="email" autocomplete="off" required name="SecFinal" ng-model="vm.ncf.SecFinal" min="1">
+		</div>
+	</div>
+   <br>
+<div class="row">
+<div class="col-sm-12 text-center paddingRight">
+			<a ng-click="vm.cancelForm()" class="btn btn-danger">Cancelar</a>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</div>
+	</div>
+	<br>
+</form>

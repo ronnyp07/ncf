@@ -6,8 +6,8 @@ var http = require('http'),
 
      app.set('view engine', 'vash');
      app.use(express.static(__dirname + '/public'));
-     
+
      controller.init(app);
-     server.listen(3000, function(){
+     server.listen(8080, function(){
      	console.log('server is up');
      });

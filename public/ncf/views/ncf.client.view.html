@@ -1,0 +1,39 @@
+<div class="row">
+   <div class="col-sm-12 text-center paddingRight">
+    <a ng-click="vm.openForm()" class="btn newButtonSuccess"> <i class="fa fa-plus"></i>
+    Agregar</a>
+   </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+
+       <table  class="table table-condensed table-bordered table-striped">
+        <th class="col-5 text-center">NCF</th>
+        <th class="col-5 text-center">NCF Code</th>
+        <th class="col-5 text-center">Sec. Inicial</th>
+        <th class="col-5 text-center">Sec. Final</th>
+        <th class="col-5 text-center">Sec. Actual</th>
+        <th class="col-5 text-center">Acción</th>
+<!--         <th class="col-5 text-center">P. Compra</th>
+        <th class="col-5 text-center">Precio</th>
+        <th class="col-5 text-center">Accion</th> -->
+        <tr ng-repeat="ncf in vm.ncfServices.ncfList">
+         <td class="text-center">{{ncf.CODEDESC}}</td>
+         <td  class="text-center">{{ncf.CODE}}</td>
+         <td  class="text-center">{{ncf.SecuenciaInicial}}</td>
+         <td  class="text-center">{{ncf.SecuenciaFinal}}</td>
+         <td  class="text-center">{{ncf.SecuenciaActual}}</td>
+        <td class="text-center">
+          <div>
+<!--             <a href="#" data-skin="skin-red-light" class="btn btn-danger btn-xs" ng-disabled="product.systemParam"><i class="fa fa-trash"
+              ng-bootbox-confirm="Al eliminar este item eliminara su dependencia ¿seguro de querer eliminar parametro?"
+              ng-bootbox-confirm-action="product.systemParam || vm.delete(product)"></i></a> -->
+              <a href="#" data-skin="skin-blue" class="btn btn-primary btn-xs" ng-disabled="product.systemParam"><i class="fa fa-edit"  ui-sref="products.edit({productId:product._id})"></i></a>
+            </div>
+          </td>
+        </tr>
+      </table>
+  </div>
+</div>
+
