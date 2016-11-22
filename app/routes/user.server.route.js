@@ -26,10 +26,10 @@ module.exports = function(app, db){
 
 app.get('/logout', function(req, res, next) {
      req.session.reset();
-     res.redirect('/');
+     res.redirect('/login');
 });
 
-app.get('/profile', function(req, res, next){
+app.get('/', function(req, res, next){
        if(req.session && req.session.user){
        	request.input('userId', sql.VarChar(50), req.body.userId);
 		request.input('username', sql.VarChar(50), req.session.user.USERNAME);
@@ -42,21 +42,25 @@ app.get('/profile', function(req, res, next){
 			}else{
               if(!recordsets[0].length){
               	 req.session.reset();
-                 res.render('index');
+                 res.render('login');
                 }else{
                   var result = recordsets[0];
                   console.log(result[0]);
                   res.locals.user = result;
-                  res.render('profile', {user: result[0]});
+                  res.render('index', {user: result[0]});
                 }
 			}
 		});
       }else{
-      	 res.render('index');
+      	 res.render('login');
       }
 });
+app.get('/login', function(req, res) {
+            // render the page and pass in any flash data if it exists
+     res.render('login');
+});
 
-app.post('/', function(req, res, next) {
+app.post('/login', function(req, res, next) {
 		request.input('userId', sql.VarChar(50), req.body.userId);
 		request.input('username', sql.VarChar(50), req.body.username);
 		request.execute('USERS_SELECT', function(err, recordsets, returnValue, affected) {
@@ -67,20 +71,20 @@ app.post('/', function(req, res, next) {
 				});
 			}else{
                if(!recordsets[0].length){
-                 res.render('index', {err: "Verificar su informacion e intentar de nuevo"
+                 res.render('login', {err: "Verificar su informacion e intentar de nuevo"
               //, csrfToken : req.csrfToken()}
                   });
                 }else{
                 	var result = recordsets[0];
                     //res.json(result[0]);
                     if(bcrypt.compareSync(req.body.password, result[0].PASSWORD)){
-                        res.locals.user  = result[0];
+                        //res.locals.user  = result[0];
                         req.session.user = result[0];
                    //      console.log(result[0]);
              		    // console.log('verore');
-                    	res.redirect('/profile');
+                    	res.redirect('/');
                      }else{
-                        res.render('index', {err: "Contraseña invalida intentar de nuevo"});
+                        res.render('login', {err: "Contraseña invalida intentar de nuevo"});
                      }
                 }
 			}

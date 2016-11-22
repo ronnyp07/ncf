@@ -69,6 +69,9 @@
 <!-- 'public/dist/js/app.min.js', -->
 <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
 <script src="lib/angularjs-toaster/toaster.min.js" ></script>
+<script src="core/core.client.module.js"></script>
+<script src="core/config/core.client.route.js"></script>
+<script src="core/services/core.client.service.js"></script>
 <script src="provider/provider.client.module.js"></script>
 <script src="provider/config/provider.client.route.js"></script>
 <script src="provider/services/provider.client.service.js"></script>
