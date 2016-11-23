@@ -8,7 +8,6 @@ ncf.factory('NcfServices', ['$resource',  function($resource){
 
 
 ncf.service('NcfServiceRest', [ '$http','$q', 'toaster', '$timeout', function($http, $q, toaster, $timeout){
-
 	var self = {
 		'ncfList': [],
 		'ncfTypeList': [],
@@ -205,4 +204,34 @@ ncf.service('NcfServiceRest', [ '$http','$q', 'toaster', '$timeout', function($h
 	};
     //self.ncfSearch();
     return self;
+}]).factory('Notify', ['$rootScope', function($rootScope) {
+    var notify = {};
+    notify.msg = '';
+
+    notify.sendbroadCast = function(mgs){
+      this.msg = mgs;
+      this.broadCast();
+      console.log(this.mgs);
+    };
+
+    notify.broadCast = function(){
+        $rootScope.$broadcast('noError');
+    };
+
+    notify.sendMsg = function(msg, data){
+       data = data || {};
+       $rootScope.$emit(msg, data);
+    };
+
+    notify.getMsg = function(msg, func, scope){
+     var unbind = $rootScope.$on(msg, func);
+
+      if(scope){
+          scope.$on('destroy', unbind);
+      }
+    };
+
+    return notify;
+    // Usar el service '$resource' para devolver un objeto '$resource' Patients
+
 }]);

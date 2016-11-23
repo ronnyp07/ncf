@@ -1,7 +1,7 @@
 'Use strict';
 
 var ncfModule = angular.module('ncf');
-ncfModule.controller('NcfController',['$scope', 'NcfServiceRest', '$modal',  function($scope, NcfServiceRest, $modal){
+ncfModule.controller('NcfController',['$scope', 'NcfServiceRest', '$modal', 'Notify',  function($scope, NcfServiceRest, $modal, Notify){
 
   var vm = this;
   vm.ncfServices = NcfServiceRest;
@@ -37,14 +37,17 @@ ncfModule.controller('NcfController',['$scope', 'NcfServiceRest', '$modal',  fun
   	vm.ncf = {};
   	vm.createModal.hide();
   };
-  // vm.ncfServices.
-  // console.log('wor');
+
+  vm.afterPrint = function(){
+    console.log('after');
+    Notify.sendMsg('afterPrint', {});
+  };
+
 }]);
 
 
 ncfModule.controller('NcfPrint',['$scope', 'NcfServiceRest', '$modal', '$q', '$timeout', function($scope, NcfServiceRest, $modal, $q, $timeout){
     vm  = this;
-
 
 vm.printReport = function(){
   vm.isPrinting = true;

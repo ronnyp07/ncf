@@ -1,0 +1,155 @@
+<a class="btn btn-success" ng-click="vm.ncfServices.printReport()">
+  Print
+</a>
+<a class="btn btn-primary" ng-click="vm.afterPrint()">
+  Continuar
+</a>
+<div id="printSection">
+  <div class="print pageBreak" id="printThisElement">
+ <div class="row" id="firstRow">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-1 text-center" style="margin-right: 15">
+      <p><label >Logo</label> </p>
+    </div>
+    <div class="col-sm-7 marginRight">
+    <p class="pMargin"><h1>{{vm.header.company}}</h1></p>
+      <p class="pMargin"><label >Rnc:</label><span> {{vm.header.rnc}}</span> </p>
+      <p class="pMargin"><label >Dirección:  </label> <span> {{vm.header.address}}</span> </p>
+      <p class="pMargin"><label >Telefono:  </label> <span>{{vm.header.phone}}</span> </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row">
+<div  class="col-sm-7 yo clientSection" >
+      <p class="pMargin"><label >CLIENTE:</label> <span> {{vm.printInfo.client}}</span> </p>
+      <p class="pMargin"><label >RNC:</label><span> {{vm.printInfo.rnc}}</span> </p>
+      <p class="pMargin"><label >DIRECCION:  </label> <span> {{vm.printInfo.dir}}</span> </p>
+    </div>
+<div class="col-sm-4 yo" style="margin-left: 15px;">
+          <p class="pMargin"><label >No.:</label> <span>{{vm.order.ncf}}</span> </p>
+          <p class="pMargin"><label >Usuario:</label> <span> Ronny Morel</span>
+          <p class="pMargin"><label >Fecha:</label> <span> {{vm.orderInfo.date}}</span> </p>
+          <p class="pMarginLast"><label >Lugar Impresión:</<label> <span>{{vm.orderInfo.sucursal}} </span></p>
+     <!-- <table>
+     <tr>
+        <td  class="text-left">
+
+        </td>
+        <td>  </td>
+
+      </tr>
+       <tr>
+        <td  class="text-left">
+ </p>
+        </td>
+        <td>  </td>
+
+      </tr>
+      <tr>
+        <td class="text-left">
+
+       </td>
+       <td class="text-left"><p><label >Hora:</label> <span> 8:20 P.M</span> </p></td>
+     </tr>
+      <tr>
+        <td class="text-left">
+
+        </td>
+        <td> </td>
+      </tr>
+   </table> -->
+ </div>
+</div>
+</div>
+<div class="row">
+<div class="row" style="margin-top: 10px">
+  <div class="col-sm-12 col-left">
+      <div id="tableContainer">
+        <table id="listTable">
+          <thead>
+            <th class="col-1 text-center">Cantidad</th>
+            <th class="col-2 text-center">Producto</th>
+            <th class="col-4 text-center">Precio</th>
+            <th class="col-5 text-center">Importe</th>
+          </thead>
+          <tr  ng-repeat="product in vm.facturaServices.cart.items">
+           <td class="text-center">{{product.quantity}}</td>
+           <td class="text-center">{{product.name}}</td>
+           <td class="text-center">{{product.price}}</td>
+           <td class="text-center">{{product.total}}</td>
+         </tr>
+       </table>
+       <!-- <div class="rTable">
+         <div class="rTableHeading">
+          <div class="rTableHead">
+            Month
+          </div>
+          <div class="rTableHead">
+            Expenses
+          </div>
+          <div class="rTableHead">
+            Notes
+          </div>
+          <div class="rTableHead">
+            Importe
+          </div>
+        </div>
+
+        <div class="rTableBody">
+          <div class="rTableRow">
+            <div class="rTableCell">
+              January
+            </div>
+            <div class="rTableCell">
+              $20
+            </div>
+            <div class="rTableCell">
+              Car repair
+            </div>
+          </div>
+          <div class="rTableRow">
+            <div class="rTableCell">
+              February
+            </div>
+            <div class="rTableCell">
+              $130
+            </div>
+            <div class="rTableCell">
+              Furniture
+            </div>
+          </div>
+          <div class="rTableRow">
+            <div class="rTableCell">
+              March
+            </div>
+            <div class="rTableCell">
+              $30
+            </div>
+            <div class="rTableCell">
+              Pool cleaning
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="row foot">
+    <div class="col-sm-7 yo2 clientSection ">
+      <p class="pMargin"><label >COMENTARIOS:</label> <span> {{vm.order.description}}</span> </p>
+    </div>
+  <div class="col-sm-4 yo2" style="margin-left: 15px;"">
+      <p class="borderTotal pMargin"><label>SUBTOTAL:</label> <span> {{vm.order.subTotal | currency}}</span></p>
+      <p class="borderTotal pMargin"><label >ITBS:</label> <span> {{vm.order.itbis | currency}}</span></p>
+      <p class="borderTotal pMargin"><label>TOTAL:</label> <span> {{vm.order.total | currency}}</span></p>
+    </div>
+  </div>
+
+</div>
+</div>
+</div>

@@ -37,7 +37,29 @@ factura.service('FacturaServiceRest', [ '$http','$q', 'toaster', function($http,
     });
   }
   return subtotal;
- },'updateItemPrice': function(index, price){
+ },'printReport' : function(){
+      var defer = $q.defer();
+      $timeout(function(){
+        var printSection = document.getElementById('printSection');
+        var ticketContainer = document.getElementById('ticketContainer');
+        function printElement(elem) {
+          printSection.innerHTML = '';
+          printSection.appendChild(elem);
+          window.print();
+        }
+        if (!printSection) {
+          printSection = document.createElement('div');
+          printSection.id = 'printSection';
+          document.body.appendChild(printSection);
+        }
+                //var target =  angular.element(document.querySelector('#printThisElement'));
+                var elemToPrint = document.getElementById("printThisElement");
+                if (elemToPrint) {
+                  printElement(elemToPrint);
+                }
+            }, 2000);
+      return defer.promise;
+    },'updateItemPrice': function(index, price){
      var defer = $q.defer();
      self.cart.items[index].price = Number(price);
      self.cart.items[index].total = Number(self.cart.items[index].quantity) * Number(self.cart.items[index].price);

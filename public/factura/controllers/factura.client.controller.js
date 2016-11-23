@@ -1,7 +1,7 @@
 'Use strict';
 
 var facturaModule = angular.module('factura');
-facturaModule.controller('FacturaController',['$scope', 'FacturaServiceRest', '$modal', 'NcfServiceRest', '$q', 'Authentication',  function($scope, FacturaServiceRest, $modal, NcfServiceRest, $q, Authentication){
+facturaModule.controller('FacturaController',['$scope', 'FacturaServiceRest', '$modal', 'NcfServiceRest', '$q', 'Authentication','Notify',  function($scope, FacturaServiceRest, $modal, NcfServiceRest, $q, Authentication, Notify){
 
   var vm = this;
   vm.facturaServices = FacturaServiceRest;
@@ -123,8 +123,8 @@ vm.createFactura = function(){
        vm.order.sucursalIdFk = 2;
        vm.order.clientIdFk = vm.noResults ? 86 : vm.facturaServices.factura.client.CLIENTE_ID_PK;
        vm.order.clientIdentity = vm.noResults ? vm.facturaServices.factura.client : vm.facturaServices.factura.client.IDENTIFY;
-       vm.order.subTotal = vm.product.total;
-       vm.order.total = vm.product.subtotal;
+       vm.order.subTotal = vm.product.subtotal;
+       vm.order.total = vm.product.total;
        vm.order.itbis = vm.facturaServices.getTotalTax();
        vm.order.description = vm.facturaServices.factura.comment;
        vm.order.moneda = vm.facturaServices.factura.moneda;
@@ -150,13 +150,25 @@ vm.createFactura = function(){
 
           });
          });
-         vm.facturaServices.printMode = true;
-         vm.ncfServices.printReport();
+          vm.ncfServices.printMode = true;
+          vm.ncfServices.printReport();
           alertify.success('Acción realidada con exito');
          // vm.clearCart();
        });
    });
   };
+
+ Notify.getMsg('afterPrint', function(event, data){
+   console.log('recive message');
+   $state.go('factura');
+   vm.clearCart();
+ });
+
+ vm.afterPrint = function(){
+  //console.log('print');
+   vm.ncfServices.printMode = false;
+   vm.clearCart();
+ };
 
  vm.saveFieldPrices = function(index, price){
     vm.facturaServices.updateItemPrice(index, price).then(function(items){

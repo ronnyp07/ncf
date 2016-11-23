@@ -5,8 +5,9 @@
    </div>
 </div>
 <br> -->
+
 <div class="row" >
- <form name="compraForm" ng-hide="vm.facturaServices.printMode" ng-show="!vm.facturaServices.printMode" novalidate>
+ <form name="compraForm" ng-hide="vm.ncfServices.printMode" ng-show="!vm.ncfServices.printMode" novalidate>
   <div class="col-sm-8">
     <div class="box box-primary">
      <div class="box-body">
@@ -38,7 +39,9 @@
        <input type="text" ng-model="vm.facturaServices.factura.client" placeholder="Filtrar Parametro"  uib-typeahead="param as param.NAME + ' ' + param.IDENTIFY  for param in vm.ncfServices.getClient($viewValue) | limitTo:8" ng-change="vm.check()"
        typeahead-on-select="onSelectDoctor($item, $model, $label)" typeahead-no-results="vm.noResults" class="form-control">
       <div  class="alert" role="alert" ng-show="vm.noResults" style="background-color: #FCF8E3;">
-      <i class="glyphicon glyphicon-remove"></i>     {{vm.facturaServices.factura.client}} No esta registrado decea <a class="btn btn-sm btn-info buttonEditCompras" ng-click="vm.editMode = true; vm.editAppKey(product)"><span>
+      <i class="glyphicon glyphicon-remove"></i>     {{vm.facturaServices.factura.client}} No esta registrado decea
+
+      <a class="btn btn-sm btn-info buttonEditCompras" ng-click="vm.editMode = true; vm.editAppKey(product)"><span>
        agregar
      </span></a>
       </div>
@@ -92,7 +95,7 @@
   <div class="col-sm-1">
     <div class="form-group">
       <label class="control-label">Agregar</label>
-      <a href="#" ng-click="vm.addProduct()" data-skin="skin-blue" class="btn btn-primary"><i class="fa fa-plus"></i> </a>
+      <a ng-click="vm.addProduct()" data-skin="skin-blue" class="btn btn-primary"><i class="fa fa-plus"></i> </a>
     </div>
   </div>
 </div>
@@ -295,7 +298,21 @@
 </form>
 </div>
 
-<div ng-show="vm.facturaServices.printMode" ng-include="'ncf/partials/print.html'">
+<div class="row" ng-show="vm.ncfServices.printMode" ng-hide="!vm.ncfServices.printMode">
+<div class="col-sm-12">
+<a class="btn btn-success" ng-click="vm.ncfServices.printReport()">
+  Print
+</a>
+<a class="btn btn-primary" ng-click="vm.afterPrint()">
+  Continuar
+</a>
 </div>
+</div>
+
+<div ng-show="vm.ncfServices.printMode" ng-hide="!vm.ncfServices.printMode" ng-include="'ncf/partials/print.html'">
+</div>
+
+
+
 
 
