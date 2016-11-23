@@ -147,7 +147,7 @@ position:absolute;
 	/*border:2px solid red;*/
   margin: 0px;
   padding-right: 0px;
-  width: 1060px; /* width: 7in; */
+  width: 1030px; /* width: 7in; */
   height: 900px; /* or height: 9.5in; */
   clear: both;
 
@@ -292,7 +292,7 @@ margin-left: 20px;
 #tableContainer{
 	margin-left: 9px;
 	width:95%;
-	height:1000PX;
+	height:900PX;
 	border: 1px solid #999999;
 }
 

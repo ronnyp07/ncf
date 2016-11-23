@@ -152,7 +152,7 @@ vm.createFactura = function(){
          });
           vm.ncfServices.printMode = true;
           vm.ncfServices.printReport();
-          alertify.success('Acción realidada con exito');
+         // alertify.success('Acción realidada con exito');
          // vm.clearCart();
        });
    });
@@ -214,6 +214,7 @@ vm.clearCart = function(){
       vm.product.subtotal = 0;
       vm.product.total = 0;
       vm.facturaServices.factura.moneda = 2;
+      vm.order = {};
       vm.selectedMoneda = vm.ncfServices.getMonedaById(2);
       vm.facturaServices.factura.tasa = vm.selectedMoneda.TASA
       vm.facturaServices.factura.impuestos = [];
