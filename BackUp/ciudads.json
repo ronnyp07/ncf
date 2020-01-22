@@ -1,0 +1,9 @@
+{"_id":{"$oid":"558e068580497dac292b7eda"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-06-27T02:12:21.561Z"},"name":"Santo Domingo","__v":0}
+{"_id":{"$oid":"558e094480497dac292b7edb"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-06-27T02:24:04.301Z"},"name":"Bonao","__v":0}
+{"_id":{"$oid":"558e0a2b80497dac292b7edc"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-06-27T02:27:55.720Z"},"name":"San Francisco","__v":0}
+{"_id":{"$oid":"5661c2cb5d855ba009cb3f97"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-12-04T16:43:55.527Z"},"name":"DN","__v":0}
+{"_id":{"$oid":"5661c2f35d855ba009cb3f98"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-12-04T16:44:35.242Z"},"name":"BAVARO","__v":0}
+{"_id":{"$oid":"5661c2fb5d855ba009cb3f99"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-12-04T16:44:43.243Z"},"name":"HIGUEY","__v":0}
+{"_id":{"$oid":"5665a41303c500f40b6c82f3"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-12-07T15:21:55.813Z"},"name":"Santo Domingo Norte","__v":0}
+{"_id":{"$oid":"5665a42403c500f40b6c82f4"},"user":{"$oid":"5588779416a30ed81954ffb6"},"pais":{"$oid":"558cb0c72f9da9842d81fbbb"},"created":{"$date":"2015-12-07T15:22:12.665Z"},"name":"Sto. Dgo. Este","__v":0}
+{"_id":{"$oid":"5665a43203c500f40b6c82f5"},"user":{"$oid":"5588779416a30ed81954ffb6"},"created":{"$date":"2015-12-07T15:22:26.795Z"},"name":"Santo Domingo Oeste","__v":0}

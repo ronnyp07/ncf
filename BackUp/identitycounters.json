@@ -1,0 +1,12 @@
+{"_id":{"$oid":"558c95eaf23d08902605d905"},"model":"Pais","field":"paisId","count":104,"__v":0}
+{"_id":{"$oid":"5591fe4fd8027f082b4ebda4"},"model":"Sector","field":"sectorId","count":116,"__v":0}
+{"_id":{"$oid":"55cbbf87755da80856fd4b7f"},"model":"Patients","field":"patientId","count":2051,"__v":0}
+{"_id":{"$oid":"55e0e306c82277941a8e5984"},"model":"Cliente","field":"clienteId","count":105,"__v":0}
+{"_id":{"$oid":"55e0e306c82277941a8e5985"},"model":"Doctor","field":"DoctorId","count":101,"__v":0}
+{"_id":{"$oid":"55ef7efb3eac23dc2b28bb1b"},"model":"locations","field":"locationId","count":104,"__v":0}
+{"_id":{"$oid":"55f202874dc6cf9024fb1bf0"},"model":"Patient","field":"patientId","count":99,"__v":0}
+{"_id":{"$oid":"55f341f939faf8482dc9e210"},"model":"Cita","field":"appId","count":170,"__v":0}
+{"_id":{"$oid":"56270991c0bd03ea4b08a415"},"model":"Clientes","field":"clienteId","count":115,"__v":0}
+{"_id":{"$oid":"56300535179eae10ca96ab04"},"model":"Maintain","field":"maintainId","count":113,"__v":0}
+{"_id":{"$oid":"5637e2e92f4347d0c19aaae9"},"model":"Document","field":"documentId","count":2777,"__v":0}
+{"_id":{"$oid":"56535f8939c0cbd63d121737"},"model":"HeaderMaster","field":"headermasterId","count":156,"__v":0}
